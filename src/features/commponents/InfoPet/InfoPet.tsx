@@ -60,26 +60,28 @@ export const InfoPet = () => {
                             <dd>{petItem.location}</dd>
                         </Attributes>
                         <Divider />
-                        <FlexWrapper justify="space-between">
-                            {chageInputText
-                                ?
-                                (
-                                    <textarea onBlur={handleTitleChange}
-                                              autoFocus
-                                              onChange={(e) => setTitle(e.currentTarget.value)}
-                                              value={title}
-                                    >
+                        <div style={{ width: "100%" }}>
+                            <FlexWrapper justify="space-between">
+                                {chageInputText
+                                    ?
+                                    (
+                                        <StyledTextarea onBlur={handleTitleChange}
+                                                  autoFocus
+                                                  onChange={(e) => setTitle(e.currentTarget.value)}
+                                                  value={title}
+                                        >
 
-                                    </textarea>
-                                )
-                                : (
-                                    <Description onDoubleClick={() => setChageInputText(true)}>
-                                        {petItem.description}
-                                    </Description>
-                                )
-                            }
-                            <Icon iconId={'editPen'} width={'24px'} height={'24px'} viewbox={'0 0 48 48'}/>
-                        </FlexWrapper>
+                                        </StyledTextarea>
+                                    )
+                                    : (
+                                        <Description onDoubleClick={() => setChageInputText(true)}>
+                                            {petItem.description}
+                                        </Description>
+                                    )
+                                }
+                                <Icon iconId={'editPen'} width={'38px'} height={'38px'} viewbox={'0 0 48 48'}/>
+                            </FlexWrapper>
+                        </div>
                     </FlexWrapper>
                 </PetInfo>
             </FlexWrapper>
@@ -139,4 +141,17 @@ const Attributes = styled.dl`
 const Description = styled.p`
   line-height: 1.6;
 `;
+
+const StyledTextarea = styled.textarea`
+    width: 90%;
+    min-height: 120px;
+    padding: 8px 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px; 
+`
 

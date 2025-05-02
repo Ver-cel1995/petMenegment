@@ -1,7 +1,9 @@
+export type Poroda = 'cat' | 'dog' | 'parrot';
+
 export type Pet = {
     id: string;
     name: string;
-    type: 'cat' | 'dog' | 'parrot';
+    type: Poroda
     age: number;
     photo: string;
     isFavorite: boolean;

@@ -1,7 +1,8 @@
-import {Pet} from "../model/type.ts";
+import {Pet, Poroda} from "../model/type.ts";
 import {createSlice, nanoid, PayloadAction} from "@reduxjs/toolkit";
 import dog from '../../../public/dog.jpg'
 import cat from '../../../public/cat.png'
+
 
 export type PetsState = {
     pets: Pet[];
@@ -49,9 +50,20 @@ export const petSlice = createSlice({
             if (pet) {
                 pet.description = action.payload.title
             }
+        },
+        addPetAC: (state, action: PayloadAction<{name: string, type: Poroda, age: number, bread: string, photo: string}>) => {
+            const newPet = {
+                id: nanoid(),
+                isFavorite: false,
+                location: 'Bataysk',
+                description: 'Lorem',
+                ...action.payload,
+            };
+            debugger
+            state.pets.push(newPet);
         }
     }
 })
 
-export const {isFavoriteAC, changeDescriptionAC} = petSlice.actions;
+export const {isFavoriteAC, changeDescriptionAC, addPetAC} = petSlice.actions;
 export const petReducer = petSlice.reducer;

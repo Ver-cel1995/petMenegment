@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import {MainApp} from "./features/commponents/MainApp/MainApp.tsx";
 import {InfoPet} from "./features/commponents/InfoPet/InfoPet.tsx";
 import {FavoritesPage} from "./features/commponents/FavoritesPage/FavoritesPage.tsx";
+import {AddPet} from "./features/commponents/AddPet/AddPet.tsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                     <Route path={'/'} element={<MainApp/>}/>
                     <Route path={'pet/:id'} element={<InfoPet/>}/>
                     <Route path="/favorites" element={<FavoritesPage />} />
+                    <Route path="/add" element={<AddPet />} />
                </Routes>
            </Main>
        </FlexWrapper>
